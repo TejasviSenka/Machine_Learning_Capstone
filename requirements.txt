@@ -4,3 +4,4 @@ matplotlib
 seaborn
 jupyter
 pyarrow
+scikit-learn
