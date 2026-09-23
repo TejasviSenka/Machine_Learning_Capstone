@@ -1,17 +1,53 @@
-# Solar Power Generation: Machine Learning Capstone
+# Machine Learning Capstone
 
-This repository contains a Machine Learning Capstone project focused on analyzing and predicting solar power generation based on weather and environmental factors.
+This repository contains the Machine Learning Capstone project, structured into two core tracks: **Regression** (Solar Power Generation) and **Classification** (Steel Industry Energy Consumption).
 
-## Project Overview
-The goal of this project is to explore how different features (like Irradiance, Ambient Temperature, Module Temperature, and Wind Speed) impact the AC Power output of solar panels. Currently, the project is in the Exploratory Data Analysis (EDA) phase.
+## 📌 Review 1 Deliverables
+Both tracks have been fully implemented up to the requirements for **Review 1**, including robust Exploratory Data Analysis (EDA), data preprocessing, feature engineering, and baseline model training.
 
-## Repository Structure
-- `solar_generation.csv`: The dataset containing solar power generation and weather metrics.
-- `solar_eda_analysis.ipynb`: A comprehensive Jupyter Notebook containing the Exploratory Data Analysis. This includes data quality checks, outlier detection, distribution plotting, and feature engineering.
-- `requirements.txt`: Python package dependencies required to run the notebooks.
+### 1. Regression Track (Solar Power)
+- **Dataset:** `solar_generation.csv`
+- **Notebook:** `regression.ipynb`
+- **Status:** Complete for Review 1 & 2.
+- **Highlights:** 
+  - Analyzed the impact of Irradiance, Ambient Temperature, and Module Temperature on AC Power output.
+  - Engineered features like `Temp_Diff` and `Total_AC_Current`.
+  - Trained and evaluated 10 regression algorithms (Linear, Ridge, Lasso, ElasticNet, KNN, LinearSVR, Decision Tree, Random Forest, Gradient Boosting, Extra Trees).
+  - Implemented hyperparameter tuning and comprehensive visualizations (Residual Plots, Feature Importance).
 
-## Setup Instructions
-To run this project locally, follow these steps:
+### 2. Classification Track (Steel Industry)
+- **Dataset:** `Steel_industry_data.csv`
+- **Notebook:** `classification.ipynb`
+- **Status:** Complete for Review 1 (Part A).
+- **Highlights:**
+  - Predicting categorical `Load_Type` (Light, Medium, Maximum).
+  - Handled class imbalance, engineered `Power_Factor_Diff`, and encoded categorical temporal variables (`WeekStatus`, `Day_of_week`).
+  - Trained the 5 required baseline classification algorithms (Logistic Regression, KNN, Naive Bayes, Decision Tree, SVC).
+  - Evaluated using Accuracy, Weighted F1-scores, and Seaborn confusion matrices.
+
+---
+
+## 📁 Repository Structure
+
+```text
+├── README.md                     # Project documentation
+├── requirements.txt              # Python dependencies
+├── .gitignore                    # Git ignore rules
+│
+├── regression.ipynb              # 📈 Solar Regression Track
+├── solar_generation.csv          # Solar dataset
+│
+├── classification.ipynb          # 🏭 Steel Classification Track
+└── Steel_industry_data.csv       # Steel industry dataset
+```
+
+*(Note: `regression_complete.ipynb`, `solar_eda_analysis.ipynb`, and `steel_eda_analysis.ipynb` are deprecated scratch files used during early EDA.)*
+
+---
+
+## ⚙️ Setup Instructions
+
+To run this project locally and view the results, follow these steps:
 
 1. **Clone the repository:**
    ```bash
@@ -19,7 +55,7 @@ To run this project locally, follow these steps:
    cd Machine_Learning_Capstone
    ```
 
-2. **Set up a Virtual Environment (Optional but recommended):**
+2. **Set up a Virtual Environment (Recommended):**
    ```bash
    python -m venv venv
    source venv/bin/activate  # On macOS/Linux
@@ -35,10 +71,13 @@ To run this project locally, follow these steps:
    ```bash
    jupyter notebook
    ```
-   Open `solar_eda_analysis.ipynb` to view the analysis.
+   *Open `regression.ipynb` or `classification.ipynb`, click **Kernel**, and select **Restart & Run All** to execute the pipelines end-to-end.*
 
-## Key Findings (EDA Phase)
-- **Data Quality:** The data requires filtering out nighttime hours (where Irradiance is near zero) for more accurate modelling of power generation.
-- **Correlations:** Irradiance is the strongest predictor of AC Power.
-- **Feature Engineering:** We engineered new metrics such as `Panel_Efficiency` and `Temp_Diff` (Module Temp - Ambient Temp) to capture non-linear relationships.
-- **Temperature Effects:** High module temperatures can reduce the efficiency of the solar panels even when irradiance is high.
+---
+
+## ⚖️ Rubric Compliance
+Both notebooks strictly adhere to the capstone guidelines:
+- **Reproducibility:** `random_state=42` is used universally.
+- **Data Leakage Prevention:** All scalers (`StandardScaler`) and encoders are fitted **strictly on the training set**.
+- **Presentation:** All plots utilize `tight_layout()`, labeled axes, clear titles, and colorblind-friendly palettes (`Set2`).
+- **Narrative:** Every major code block is accompanied by a Markdown cell explaining the underlying intuition and insights.
