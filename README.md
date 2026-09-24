@@ -30,18 +30,27 @@ Both tracks have been fully implemented up to the requirements for **Review 1**,
 ## 📁 Repository Structure
 
 ```text
-├── README.md                     # Project documentation
+/ (root)
+├── README.md                     # Project overview, setup, and results
 ├── requirements.txt              # Python dependencies
 ├── .gitignore                    # Git ignore rules
 │
-├── regression.ipynb              # 📈 Solar Regression Track
-├── solar_generation.csv          # Solar dataset
+├── data/                         # Raw dataset files
+│   ├── solar_generation.csv      # Solar dataset
+│   └── Steel_industry_data.csv   # Steel industry dataset
 │
-├── classification.ipynb          # 🏭 Steel Classification Track
-└── Steel_industry_data.csv       # Steel industry dataset
+├── notebooks/                    # Jupyter notebooks for analysis and modelling
+│   ├── regression.ipynb          # 📈 Solar Regression Track
+│   └── classification.ipynb      # 🏭 Steel Classification Track
+│
+├── models/                       # Saved model files (.pkl via joblib) - [Optional]
+│   └── .gitkeep
+│
+├── app/                          # GUI / deployment code (if attempting bonus) - [Optional]
+│   └── .gitkeep
+│
+└── archive/                      # Deprecated scratch files and early EDA notebooks
 ```
-
-*(Note: `regression_complete.ipynb`, `solar_eda_analysis.ipynb`, and `steel_eda_analysis.ipynb` are deprecated scratch files used during early EDA.)*
 
 ---
 
